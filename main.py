@@ -1,5 +1,6 @@
 from helpers import append
 from pandas import read_csv
+import Ip2location
 from functools import reduce
 
 def isHour(date, h):
@@ -17,10 +18,17 @@ def main():
     print(len(fivexx))
 
     ips = data[0]
-    unique_ips = len(set(ips))
+    unique_ips = set(ips)
 
+    for i in unique_ips:
+        listofip=i
+        ok=Ip2location.ip2loc(i)
+        print(ok)
+
+    countries = tuple(zip(tuple(map(Ip2location.ip2loc, unique_ips)), unique_ips))
+    print(countries)
     print(len(ips))
-    print(unique_ips)
+    print(len(unique_ips))
     sum = 0
     requestsPerHour = list(range(24))
     for i in range(24):
