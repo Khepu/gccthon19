@@ -1,5 +1,12 @@
+from helpers import append
 from pandas import read_csv
-from helpers import mapt
+from functools import reduce
+
+def isHour(date, h):
+    return True if date.split(":")[1] == h else False
+
+def padToTwo(h):
+    return str(h) if h >= 10 else "0" + str(h)
 
 def main():
     data = read_csv("./datasets/website-access.data", sep=" ", header=None)
@@ -14,6 +21,11 @@ def main():
 
     print(len(ips))
     print(unique_ips)
+    sum = 0
+    requestsPerHour = list(range(24))
+    for i in range(24):
+        requestsPerHour[i] = len(tuple(filter(lambda date: isHour(date, padToTwo(i)), data[1])))
+    print(requestsPerHour)
 
 if __name__ == "__main__":
     main()
