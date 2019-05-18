@@ -1,5 +1,6 @@
 from pandas import read_csv
-from helpers import mapt
+import re
+
 
 def main():
     data = read_csv("./datasets/website-access.data", sep=" ", header=None)
@@ -14,6 +15,17 @@ def main():
 
     print(len(ips))
     print(unique_ips)
+
+    dates = data[1]
+
+
+def getHour(date, hour):
+    return re.search("^$", date)
+
+
+data = read_csv("./datasets/website-access.data", sep=" ", header=None)
+
+
 
 if __name__ == "__main__":
     main()
