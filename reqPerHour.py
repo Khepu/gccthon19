@@ -15,7 +15,7 @@ def reqPerHour(requests):
     plt.plot(requests)
     plt.ylabel('Requests')
 
-    plt.figure(figsize=800)
+
 
 
     plt.savefig("reqPerHours.png")
