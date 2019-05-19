@@ -1,5 +1,6 @@
 import requestByCountry
 import Ip2location
+import matplotlib.pyplot as plt
 
 ip = requestByCountry.reqByCou()
 print(ip)
@@ -24,11 +25,34 @@ c18= Ip2location.ip2loc("86.125.112.230")
 c19 = Ip2location.ip2loc("87.251.81.179")
 c20= Ip2location.ip2loc("91.138.198.224")
 
-x=[1029, 2223, 6549, 6727, 4234, 2048, 3148, 6544, 4404, 1795, 3179, 1104, 2084, 2164, 8622, 1078, 420,1163,8843,1042]
-for i in range(len(x)):
-    x[i] = x[i]/68400
+sumChina = ip[2]+ip[3]+ip[4]+ip[7]
+sumIndia = ip[1]+ip[5]
+sumUn = ip[6]+ip[10]+ip[15]+ip[16]
+sumRus = ip[8]+ip[14]+ip[18]
+sumRo = ip[11]+ip[17]
+sumFr = ip[12]+ip[13]
 
-print(x)
+
+x=[1029, sumIndia, sumChina, sumUn, sumRus, 1795, sumRo, sumFr, 1042]
+for i in range(len(x)):
+     x[i] = x[i]/68400
+
+countries = [c1,c2,c3,c7,c9,c10,c12,c14,c20]
+
+for i in countries:
+    labels = countries
+
+for i in x:
+    sizes=x
+
+#tailand pakistan
+explode = (0,0,0.1,0.1,0.1,0,0,0,0)
+fig1, ax1 = plt.subplots()
+ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+        shadow=True, startangle=0)
+ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+plt.savefig("Pie.png")
 
 
 
