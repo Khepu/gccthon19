@@ -1,3 +1,4 @@
+import reqperhour
 import requestByCountry
 from helpers import append
 from pandas import read_csv
@@ -83,6 +84,7 @@ def main():
         requestsPerHour[i] = len(tuple(filter(lambda date: isHour(date, padToTwo(i)), data[1])))
     #print(requestsPerHour)
 
+    reqperhour.reqperhour(requestsPerHour)
 
 
     vectorized_urls = vectorize(data[3])
