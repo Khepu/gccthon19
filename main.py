@@ -1,5 +1,15 @@
 from pandas import read_csv
-import re
+import Ip2location
+from pandas import np
+import matplotlib.pyplot as plt
+
+
+def isHour(date, h):
+    return True if date.split(":")[1] == h else False
+
+
+def padToTwo(h):
+    return str(h) if h >= 10 else "0" + str(h)
 
 
 def main():
@@ -11,19 +21,26 @@ def main():
     print(len(fivexx))
 
     ips = data[0]
-    unique_ips = len(set(ips))
+    unique_ips = set(ips)
 
+    countries = tuple(zip(tuple(map(Ip2location.ip2loc, unique_ips)), unique_ips))
+    print(countries)
     print(len(ips))
-    print(unique_ips)
+    print(len(unique_ips))
+    sum = 0
+    requestsPerHour = list(range(24))
+    for i in range(24):
+        requestsPerHour[i] = len(tuple(filter(lambda date: isHour(date, padToTwo(i)), data[1])))
+    print(requestsPerHour)
 
-    dates = data[1]
+    x = np.array(countries) #kinhsh ari8moi
+    y = np.array(requestsPerHour) #ores
+    z = np.array(countries)
 
+    plt.plot(x, y, color='blue')
+    plt.plot(x, z, color='blue')
 
-def getHour(date, hour):
-    return re.search("^$", date)
-
-
-data = read_csv("./datasets/website-access.data", sep=" ", header=None)
+    plt.show()
 
 
 
