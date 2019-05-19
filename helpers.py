@@ -10,7 +10,7 @@ array = compose(np.array, tuple)
 def arr(m):
     return array(m)
 
-def arrmap(f, l):
+def mapt(f, l):
     return compose(array, partial(map, f))(l)
 
 def countif(f, l):
