@@ -15,7 +15,6 @@ c3 = Checkbutton(root, text="3. Πόσες είναι οι ξεχωριστές 
 
 
 def icon():
-    print("ok")
     photo_pie = PhotoImage(file="Pie.png")
     label = Label(root, image=photo_pie)
     label.img=photo_pie
