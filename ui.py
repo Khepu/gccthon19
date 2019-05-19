@@ -9,8 +9,6 @@ root.title('Hackthon 2019')
 c1 = Checkbutton(root, text="1. Πόσο ήταν συνολικά το traffic που δέχτηκε ο server;", command=lambda: onClick(1))
 c2 = Checkbutton(root, text="2. Πόσα requests προκάλεσαν 5xx server error;", command=lambda: onClick(2))
 c3 = Checkbutton(root, text="3. Πόσες είναι οι ξεχωριστές IP που επισκέφτηκαν τον server;", command=lambda: onClick(3))
-c2.deselect()
-c3.deselect()
 
 
 def onClick(args):
