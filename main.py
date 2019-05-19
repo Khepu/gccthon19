@@ -1,4 +1,4 @@
-
+import requestByCountry
 from helpers import append
 from pandas import read_csv
 import pandas as pd
@@ -21,18 +21,13 @@ def main():
     ips = data[0]
     unique_ips = set(ips)
 
-    # for i in unique_ips:
-    #     listofip=i
-    #     ok=Ip2location.ip2loc(i)
-    #     print(ok)
+
 
     countries = list(zip(list(map(Ip2location.ip2loc, unique_ips)), unique_ips))
     print(countries)
     print(len(ips))
     print(len(unique_ips))
 
-    ok=Ip2location.ip2loc("31.184.238.22")
-    print(ok)
     sum = 0
     requestsPerHour = list(range(24))
     for i in range(24):
