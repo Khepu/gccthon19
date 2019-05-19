@@ -2,8 +2,6 @@ import math
 from datetime import *
 import matplotlib as md
 import matplotlib.pyplot as plt
-import plotly.plotly as py
-import plotly.graph_objs as go
 
 
 def reqPerHour(requests):
@@ -14,8 +12,6 @@ def reqPerHour(requests):
 
     plt.plot(requests)
     plt.ylabel('Requests')
-
-    plt.figure(figsize=800)
 
 
     plt.savefig("reqPerHours.png")
