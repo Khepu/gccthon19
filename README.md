@@ -1,8 +1,8 @@
 # gccthon19
 
-##Requirements
+## Requirements
   python 3.6
   
-##Licence
+## License
   MIT
   
